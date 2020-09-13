@@ -1,0 +1,144 @@
+$f_mono: 'Inconsolata', 'Courier 10 Pitch', 'Mono Uralic', 'Courier New', Courier;
+
+body,
+html
+{
+	background: #333;
+	padding: 0 10px;
+	margin: 0;
+	counter-reset: numTest;
+}
+
+::selection
+{
+  background-color: #ff6600;
+  color: #000;
+}
+
+section div
+{
+	border: 1px solid #22B573;
+}
+
+section
+{
+	background: #222;
+	margin: 40px auto;
+	max-width: 830px;
+	padding: 28px 10px;
+	box-sizing: border-box;
+	transition: 500ms;
+
+	&:hover
+	{
+		background: #000;
+	}
+
+	div
+	{
+		box-sizing: border-box;
+		padding: 20px;
+		color: #B3B3B3;
+	}
+}
+
+fieldset
+{
+	border: none;
+}
+
+legend
+{
+	color: #666;
+	margin-bottom: 20px;
+
+	&:before
+	{
+		counter-increment: numTest;
+		content: counter(numTest) ".";
+		color: #FBB03B;
+		margin-right: 10px;
+		font-style: normal;
+		font-size: 20pt;
+	}
+}
+
+label,
+h1
+{
+	color: #DBAE1F;
+	&:before { content: "-- "; }
+}
+
+input
+{
+	color: #B3B3B3;
+	background: transparent;
+	border: none;
+	width: 91%;
+	margin-bottom: 10px;
+
+	&:focus { outline: none; }
+}
+
+p
+{
+	&:before
+	{
+		animation: blink alternate 300ms infinite steps(2);
+		content: "> ";
+		color: #FCEE21;
+	}
+}
+
+@keyframes blink
+{
+	0% { opacity: 0; }
+}
+
+ol
+{
+	color: #00A99D;
+	margin: 0;
+	padding-top: 0;
+
+	span
+	{
+		color: #999;
+	}
+}
+
+section,
+input,
+label,
+legend,
+h1
+{
+	font-family: $f_mono;
+	font-size: 11pt;
+	font-weight: bold;
+	transition: 500ms;
+
+	&:hover { color: #FCEE21; }
+}
+
+.vanish span
+{
+	opacity: 0;
+	animation-iteration-count: 1;
+	animation-duration: 1000ms;
+}
+
+
+@for $kounter from 1 through 10
+{
+	.fade_#{$kounter}
+	{
+		animation-name: fd#{$kounter};
+	}
+	@keyframes fd#{$kounter}
+	{
+		5% { opacity: 1; }
+		#{$kounter * 10}% { opacity: 0; }
+	}
+}

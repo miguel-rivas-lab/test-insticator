@@ -1,0 +1,46 @@
+- var pageTitle = "Test"
+- var site = "Test"
+- var icoPath = "img/ico.png"
+- var icoBackground = "#D83434"
+- var description = "Indicator Inc / Test"
+- var viewPort = true
+
+doctype html
+html
+	head
+		meta(name="robots", content="noindex, nofollow")
+		include jade/metatags
+		link(
+			rel="stylesheet"
+			href="css/style.css"
+		)
+		include jade/analytics
+	body
+		section#test01
+			form
+				fieldset
+					legend Write a javascript function to take in a String, and output "n" similar looking strings.
+					label String:
+						p: input.str_input(type="text", value="Hey New Yorkers")
+					label Variations:
+						p: input.int_input(type="text", value="5")
+					h1 Output:
+					div
+						ol
+							li: span String 01
+							li: span String 02
+							li: span String 03
+							li: span String 04
+							li: span String 05
+		section#test02
+			form
+				fieldset
+					legend Write a CSS class with a javascript function which observes a time "t" value, and as the value of t decreases the characters associated with the div start vanishing.
+					label String:
+						p: input.str_input(type="text", value="Nothing of me is original. I am the combined effort of everyone I've ever known.")
+					label Time (milliseconds):
+						p: input.int_input(type="text", value="8000")
+					h1 Output:
+					div.vanish Nothing of me is original. I am the combined effort of everyone I've ever known.
+
+	script(src="js/script.js", type="text/javascript")
